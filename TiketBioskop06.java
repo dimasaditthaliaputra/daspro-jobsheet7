@@ -4,18 +4,21 @@ public class TiketBioskop06 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int jmlTiket, pelanggan, hargaTiket = 50000, totalTiket = 0, i = 0;
+        int jmlTiket, hargaTiket = 50000, totalTiket = 0, i = 0;
         double totalHarga = 0, totalPenjualan = 0;
 
-        System.out.print("Masukkan jumlah pelanggan: ");
-        pelanggan = sc.nextInt();
-        while ( i < pelanggan ) {
-            System.out.print("Masukkan jumlah tiket yang dibeli untuk pelanggan ke-" + ( i + 1 ) + ": ");
+        do {
+            System.out.print("Masukkan jumlah tiket yang dibeli untuk pelanggan ke-" + ( i + 1 ) + " (ketik 0 untuk keluar) : ");
             jmlTiket = sc.nextInt();
 
             if (jmlTiket < 0) {
                 System.out.println("Input tidak valid. Masukkan lagi input yang valid!");
                 continue;
+            }
+
+            if (jmlTiket == 0) {
+                System.out.println("Program Selesai");
+                break;
             }
 
             totalHarga = jmlTiket * hargaTiket;
@@ -32,8 +35,7 @@ public class TiketBioskop06 {
             System.out.println("Total harga untuk " + jmlTiket + " tiket: Rp " + totalHarga);
             sc.nextLine();
             i++;
-        }
-
+        } while (true);
         System.out.println("============================================");
         System.out.println("Total Tiket terjual: " + totalTiket);
         System.out.println("Total penjualan tiket: Rp " + totalPenjualan);
